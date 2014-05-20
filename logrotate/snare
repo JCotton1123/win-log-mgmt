@@ -1,0 +1,8 @@
+/var/log/remote/snare.log {
+    weekly
+    create
+    rotate 1
+    postrotate
+        sleep 2 && /usr/local/etc/rc.d/syslog-ng reload > /dev/null 2>&1 || true
+    endscript
+}
