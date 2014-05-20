@@ -5,8 +5,8 @@ A simple central log management solution for windows.
 
 There are better solutions out there but if you don't
 feel like paying for something this is an easy way to
-build a *central log management box* where you can *process
-the logs with your favoriate unix tools*. You can also add
+build a **central log management box** where you can **process
+the logs with your favoriate unix tools**. You can also add
 the logs to MySQL if you prefer to build a web app for 
 processing them.
 
