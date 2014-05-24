@@ -12,7 +12,7 @@ processing them.
 
 ## Requirements
 
-* A unix box running newsyslog
+* A unix box running syslog-ng
 * One or more windows servers running the [Snare agent](https://www.intersectalliance.com/our-product/snare-agent/operating-system-agents/snare-agent-for-windows/)
 * (Optional) A box running MySQL
 
@@ -20,14 +20,14 @@ processing them.
 
 ### Syslog server
 
-Setup a unix box with newsyslog and merge the default newsyslog.conf
+Setup a unix box with syslog-ng and merge the default syslog-ng.conf
 with the one supplied in this repo. This configuration contains directives
 for logging to a flat file (in a delimited format) and/or logging to MySQL.
 The later is cool if you want to build a web app to process the logs.
 
 #### Logging to a flat file
 
-The newsyslog.conf contains a log directive that by default sends the logs
+The syslog-ng.conf contains a log directive that by default sends the logs
 to /var/log/remote/snare.log in a pipe delimited format. This is great if you
 want to process the logs using unix tools (grep, cut, awk, etc). This file
 will grow and needs to be rotated. A logrotate conf is supplied in this repo.
@@ -36,7 +36,7 @@ Customize as a needed.
 #### MySQL
 
 This repo includes a schema.sql file that will create the database and tables
-referenced in newsyslog.conf. Feel free to customize. You'll likely want to
+referenced in syslog-ng.conf. Feel free to customize. You'll likely want to
 setup some indexes based on your common search patterns.
 
 Storage will likely become a concern. In my current implementation I have the
@@ -46,5 +46,5 @@ I've provided the script I wrote to manage the table paritions.
 
 ### Windows servers
 
-Install [snare](https://www.intersectalliance.com/our-product/snare-agent/operating-system-agents/snare-agent-for-windows/) and configure it to the log to your newsyslog server.
+Install [snare](https://www.intersectalliance.com/our-product/snare-agent/operating-system-agents/snare-agent-for-windows/) and configure it to the log to your syslog-ng server.
 
